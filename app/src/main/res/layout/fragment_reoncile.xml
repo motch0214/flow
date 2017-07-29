@@ -52,7 +52,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
                 android:enabled="@{behavior.ok.enabled}"
                 android:onClick="@{view -> behavior.ok.execute(view)}"
                 android:text="@string/ok" />
@@ -62,7 +61,6 @@
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toLeftOf="@id/reconcile"
                 android:layout_toStartOf="@id/reconcile"
                 android:onClick="@{view -> behavior.cancel.execute(view)}"
                 android:text="@string/cancel" />

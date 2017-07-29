@@ -42,7 +42,6 @@
                 android:id="@+id/from"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_toLeftOf="@id/arrow"
                 android:layout_toStartOf="@id/arrow"
                 android:hint="@string/hint_select_account"
                 android:onClick="@{() -> behavior.from.execute()}"
@@ -54,7 +53,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@id/arrow"
-                android:layout_toRightOf="@id/arrow"
                 android:hint="@string/hint_select_account"
                 android:onClick="@{() -> behavior.to.execute()}"
                 android:text="@{behavior.to.text}"
@@ -88,7 +86,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
                 android:enabled="@{behavior.save.enabled}"
                 android:onClick="@{view -> behavior.save.execute(view)}"
                 android:text="@string/save" />
@@ -98,7 +95,6 @@
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toLeftOf="@id/save_button"
                 android:layout_toStartOf="@id/save_button"
                 android:onClick="@{view -> behavior.cancel.execute(view)}"
                 android:text="@string/cancel" />
