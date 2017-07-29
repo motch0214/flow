@@ -21,7 +21,7 @@ class SectionsPagerAdapter(
         fragmentManager: FragmentManager)
     : FragmentPagerAdapter(fragmentManager) {
 
-    val pageChanges: BehaviorSubject<Page> = BehaviorSubject.createDefault(Page.ASSET_LIST)
+    val pageChanges: BehaviorSubject<Page> = BehaviorSubject.createDefault(Page.values()[0])
 
     val listener = object : ViewPager.OnPageChangeListener {
 
@@ -55,5 +55,6 @@ class SectionsPagerAdapter(
 }
 
 enum class Page {
-    ASSET_LIST, PL_LIST
+    PL_LIST,
+    ASSET_LIST
 }
