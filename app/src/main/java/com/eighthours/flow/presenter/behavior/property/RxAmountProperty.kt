@@ -28,7 +28,7 @@ class RxAmountProperty(
 
     override fun parse(string: String?): Amount {
         return try {
-            AmountFormat.parse(string) as Amount
+            AmountFormat.parse(string?.replace(",", "")) as Amount
         } catch (e: ParseException) {
             ZERO
         }
