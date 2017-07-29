@@ -23,9 +23,11 @@ fun <T> async(scheduler: Scheduler = Schedulers.io(), task: () -> T): Single<T> 
     return single
 }
 
-fun <T, R> Single<T>.then(task: (T) -> R): Single<R> = map(task)
+fun <T> Single<T>.onSuccess(task: (T) -> Unit) {
+    this.subscribe(task)
+}
 
-val UI = AndroidSchedulers.mainThread()
+val UI: Scheduler = AndroidSchedulers.mainThread()
 
 
 fun <T1, T2, R> Pair<Publisher<T1>, Publisher<T2>>.combineLatest(func: (T1, T2) -> R): Flowable<R>

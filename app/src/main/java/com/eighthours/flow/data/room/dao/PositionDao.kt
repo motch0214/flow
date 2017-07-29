@@ -26,6 +26,11 @@ interface PositionDao
 
     @Query("""
         SELECT * FROM Position
+    """)
+    override fun findAll(): List<Position>
+
+    @Query("""
+        SELECT * FROM Position
         WHERE accountId = :accountId AND month IS NULL
     """)
     override fun findAssetPosition(accountId: Long): Position?

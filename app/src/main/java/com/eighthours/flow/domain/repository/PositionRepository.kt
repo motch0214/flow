@@ -10,6 +10,8 @@ interface PositionRepository {
 
     fun loadInOutPositions(month: YearMonth): Flowable<List<Position>>
 
+    fun findAll(): List<Position>
+
     fun findAssetPosition(accountId: Long): Position?
 
     fun findInOutPosition(accountId: Long, month: YearMonth): Position?

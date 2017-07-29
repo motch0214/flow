@@ -23,6 +23,10 @@
     <string name="hint_select_account_group">Select Group</string>
     <string name="hint_amount">0</string>
 
+    <!-- Message -->
+    <string name="export_success">Finish exporting successfully</string>
+    <string name="error_export_intent">App for export not found.</string>
+
     <!-- Button -->
     <string name="save">Save</string>
     <string name="cancel">Cancel</string>
