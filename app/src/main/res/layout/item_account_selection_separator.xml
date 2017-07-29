@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    tools:context=".presenter.activity.MainActivity">
+
+    <data>
+
+        <variable
+            name="group"
+            type="com.eighthours.flow.domain.entity.Account" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingEnd="@dimen/selection_padding"
+            android:paddingLeft="@dimen/selection_padding"
+            android:paddingRight="@dimen/selection_padding"
+            android:paddingStart="@dimen/selection_padding"
+            android:text="@{group.name}"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/name"
+            android:layout_marginEnd="@dimen/selection_padding"
+            android:layout_marginLeft="@dimen/selection_padding"
+            android:layout_marginRight="@dimen/selection_padding"
+            android:layout_marginStart="@dimen/selection_padding"
+            android:background="@android:color/darker_gray" />
+
+    </RelativeLayout>
+</layout>

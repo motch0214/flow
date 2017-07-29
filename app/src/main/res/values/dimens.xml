@@ -1,0 +1,16 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="card_margin">8dp</dimen>
+    <dimen name="card_padding">16dp</dimen>
+    <dimen name="indent">16dp</dimen>
+
+    <dimen name="dialog_padding">8dp</dimen>
+
+    <dimen name="space_line">8dp</dimen>
+    <dimen name="large_space_line">16dp</dimen>
+
+    <dimen name="selection_padding">16dp</dimen>
+    <dimen name="selection_half_padding">8dp</dimen>
+</resources>

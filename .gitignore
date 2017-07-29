@@ -38,3 +38,15 @@ captures/
 
 # Keystore files
 *.jks
+
+# Android Studio initially ignores
+*.iml
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+/.idea/dictionaries
+.DS_Store
+/build
+/captures
+.externalNativeBuild

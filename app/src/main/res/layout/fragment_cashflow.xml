@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?><!--suppress AndroidElementNotAllowed -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".presenter.activity.CashflowActivity">
+
+    <data>
+
+        <variable
+            name="behavior"
+            type="com.eighthours.flow.presenter.behavior.CashflowBehavior" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/dialog_padding">
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> behavior.date.execute()}"
+            android:text="@{behavior.date.text}"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/space_line"
+            android:layout_marginTop="@dimen/space_line">
+
+            <TextView
+                android:id="@+id/arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="@string/right_double_arrow"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/from"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/arrow"
+                android:layout_toStartOf="@id/arrow"
+                android:hint="@string/hint_select_account"
+                android:onClick="@{() -> behavior.from.execute()}"
+                android:text="@{behavior.from.text}"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/to"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/arrow"
+                android:layout_toRightOf="@id/arrow"
+                android:hint="@string/hint_select_account"
+                android:onClick="@{() -> behavior.to.execute()}"
+                android:text="@{behavior.to.text}"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </RelativeLayout>
+
+        <EditText
+            android:id="@+id/amount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:cursorVisible="false"
+            android:gravity="end"
+            android:hint="@string/hint_amount"
+            android:inputType="numberSigned"
+            android:maxLength="13"
+            android:maxLines="1"
+            android:selection="@{behavior.amount.length}"
+            android:text="@={behavior.amount.text}"
+            android:textAppearance="?android:attr/textAppearanceLarge">
+
+            <requestFocus />
+        </EditText>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/save_button"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:enabled="@{behavior.save.enabled}"
+                android:onClick="@{view -> behavior.save.execute(view)}"
+                android:text="@string/save" />
+
+            <Button
+                android:id="@+id/cancel_button"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/save_button"
+                android:layout_toStartOf="@id/save_button"
+                android:onClick="@{view -> behavior.cancel.execute(view)}"
+                android:text="@string/cancel" />
+
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

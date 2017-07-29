@@ -1,0 +1,85 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "com.eighthours.flow"
+        minSdkVersion 16
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+}
+
+ext.support_version = "25.3.1"
+ext.arch_version = "1.0.0-alpha4"
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Test
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.assertj:assertj-core:3.6.1'
+    testCompile 'org.mockito:mockito-core:2.8.47'
+
+    compile "com.android.support:appcompat-v7:$support_version"
+    compile "com.android.support:design:$support_version"
+
+    // Design
+    compile "com.android.support:cardview-v7:$support_version"
+    compile "com.android.support:recyclerview-v7:$support_version"
+
+    // Kotlin
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+
+    // Architecture Components
+    kapt "android.arch.lifecycle:compiler:$arch_version"
+    compile "android.arch.lifecycle:runtime:$arch_version"
+    compile "android.arch.lifecycle:extensions:$arch_version"
+
+    // Room
+    kapt "android.arch.persistence.room:compiler:$arch_version"
+    compile "android.arch.persistence.room:runtime:$arch_version"
+    compile "android.arch.persistence.room:rxjava2:$arch_version"
+
+    // Data Binding
+    kapt 'com.android.databinding:compiler:2.3.0'
+
+    // Dagger
+    kapt 'com.google.dagger:dagger-compiler:2.9'
+    compile 'com.google.dagger:dagger:2.9'
+
+    // Logger
+    compile 'com.orhanobut:logger:2.1.1'
+
+    // ThreeTenABP
+    compile 'com.jakewharton.threetenabp:threetenabp:1.0.4'
+
+    // RxJava
+    compile group: 'io.reactivex.rxjava2', name: 'rxjava', version: '2.1.1'
+    compile group: 'io.reactivex.rxjava2', name: 'rxandroid', version: '2.0.1'
+}
+
+repositories {
+    mavenCentral()
+    maven { url "https://jitpack.io" }
+
+    // room
+    maven { url 'https://maven.google.com' }
+}

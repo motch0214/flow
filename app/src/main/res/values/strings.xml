@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">flow</string>
+
+    <!-- Page -->
+    <string name="Page.ASSET_LIST">Assets</string>
+    <string name="Page.PL_LIST">P/L</string>
+
+    <!-- Title -->
+    <string name="title_cashflow">Cashflow</string>
+    <string name="title_add_account">New Account</string>
+
+    <!-- Menu -->
+    <string name="menu_add_account">Create New Account</string>
+    <string name="menu_export">Export</string>
+    <string name="menu_reconcile">Reconcile</string>
+    <string name="menu_edit">Edit</string>
+
+    <!-- Hint -->
+    <string name="hint_account_name">Name</string>
+    <string name="hint_select_account">Select Account</string>
+    <string name="hint_select_account_type">Select Type</string>
+    <string name="hint_select_account_group">Select Group</string>
+    <string name="hint_amount">0</string>
+
+    <!-- Button -->
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+    <string name="create">Create</string>
+
+    <!-- Symbol -->
+    <string name="vertical_ellipsis">&#8942;</string>
+    <string name="right_arrow">&#8594;</string>
+    <string name="right_double_arrow">&#8658;</string>
+
+    <!-- Date Format -->
+    <string name="format_local_date">yyyy/MM/dd</string>
+    <string name="format_year_month">MMM yyyy</string>
+
+    <!-- AccountType -->
+    <string name="AccountType.ASSET">Asset</string>
+    <string name="AccountType.INCOME">Income</string>
+    <string name="AccountType.OUTGO">Outgo</string>
+    <string name="AccountType.ASSET_GROUP">Asset Group</string>
+    <string name="AccountType.PL_GROUP">PL Group</string>
+
+    <!-- TotalAccount -->
+    <string name="TotalAccount.TOTAL_ASSET">Total</string>
+    <string name="TotalAccount.TOTAL_PL">Total</string>
+</resources>

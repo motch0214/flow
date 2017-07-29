@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".presenter.activity.MainActivity">
+
+    <data>
+
+        <variable
+            name="behavior"
+            type="com.eighthours.flow.presenter.behavior.EditAccountBehavior" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/dialog_padding">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_select_account_type"
+            android:onClick="@{() -> behavior.type.execute()}"
+            android:text="@{behavior.type.text}"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/space_line"
+            android:layout_marginTop="@dimen/space_line"
+            android:hint="@string/hint_account_name"
+            android:inputType="text"
+            android:maxLines="1"
+            android:text="@={behavior.name.text}"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/indent"
+            android:layout_marginStart="@dimen/indent"
+            android:hint="@string/hint_select_account_group"
+            android:onClick="@{() -> behavior.group.execute()}"
+            android:text="@{behavior.group.text}"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:visibility="@{behavior.group.visibility}" />
+
+        <EditText
+            android:id="@+id/amount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:cursorVisible="false"
+            android:gravity="end"
+            android:hint="@string/hint_amount"
+            android:inputType="numberSigned"
+            android:maxLength="13"
+            android:maxLines="1"
+            android:selection="@{behavior.amount.length}"
+            android:text="@={behavior.amount.text}"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:visibility="@{behavior.amount.visibility}">
+
+            <requestFocus />
+        </EditText>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/reconcile"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:enabled="@{behavior.save.enabled}"
+                android:onClick="@{view -> behavior.save.execute(view)}"
+                android:text="@string/create" />
+
+            <Button
+                android:id="@+id/cancel_button"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/reconcile"
+                android:layout_toStartOf="@id/reconcile"
+                android:onClick="@{view -> behavior.cancel.execute(view)}"
+                android:text="@string/cancel" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</layout>
