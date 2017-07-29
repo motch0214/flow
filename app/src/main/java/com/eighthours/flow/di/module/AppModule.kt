@@ -2,6 +2,7 @@ package com.eighthours.flow.di.module
 
 import android.arch.persistence.room.Room
 import android.content.Context
+import com.eighthours.flow.BuildConfig
 import com.eighthours.flow.FlowApplication
 import com.eighthours.flow.data.initializer.DatabaseInitializer
 import com.eighthours.flow.data.room.DatabaseInitializerHook
@@ -21,7 +22,9 @@ class AppModule(
         private val context: Context) {
 
     init {
-        Logger.addLogAdapter(AndroidLogAdapter(SimpleFormatStrategy(FlowApplication.TAG)))
+        Logger.addLogAdapter(object : AndroidLogAdapter(SimpleFormatStrategy(FlowApplication.TAG)) {
+            override fun isLoggable(priority: Int, tag: String?): Boolean = BuildConfig.DEBUG
+        })
         AndroidThreeTen.init(context);
         Formatter.init(context)
     }

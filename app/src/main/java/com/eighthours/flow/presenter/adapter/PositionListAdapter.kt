@@ -53,7 +53,7 @@ class PositionListAdapter(
             PositionBeanType.TOTAL_ASSET,
             PositionBeanType.TOTAL_PL -> {
                 holder.binding as ItemTotalPositionBinding
-                holder.binding.bean = items[index] as GroupPositionBean
+                holder.binding.bean = items[index]
             }
             PositionBeanType.ASSET_GROUP -> {
                 holder.binding as ItemGroupPositionBinding
