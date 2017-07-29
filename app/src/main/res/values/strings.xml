@@ -40,7 +40,7 @@
 
     <!-- Date Format -->
     <string name="format_local_date">yyyy/MM/dd</string>
-    <string name="format_year_month">MMM yyyy</string>
+    <string name="format_year_month">yyyy/MM</string>
 
     <!-- AccountType -->
     <string name="AccountType.ASSET">Asset</string>
