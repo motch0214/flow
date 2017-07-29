@@ -99,11 +99,11 @@ class MainActivity
         }
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         when (requestCode) {
-            CREATE_DOCUMENT_REQUEST -> {
-                Logger.d("create a file ${data.data}")
-                val writer = contentResolver.openOutputStream(data.data).bufferedWriter()
+            CREATE_DOCUMENT_REQUEST -> data?.let {
+                Logger.d("create a file ${it.data}")
+                val writer = contentResolver.openOutputStream(it.data).bufferedWriter()
                 component.exportAction().exportWith(writer)
                         .observeOn(UI)
                         .onSuccess {
