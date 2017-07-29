@@ -41,7 +41,7 @@ private class CallbackWrapper(
 
     override fun onCreate(db: SupportSQLiteDatabase) {
         delegate.onCreate(db)
-        initializer.needInitialization = true
+        initializer.initialize()
     }
 
     override fun onUpgrade(db: SupportSQLiteDatabase, oldVersion: Int, newVersion: Int) {

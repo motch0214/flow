@@ -34,13 +34,11 @@ class AppModule(
     @Provides @Singleton
     fun provideRepository(): Repository {
         val initializer = DatabaseInitializer()
-        // TODO
-        // val db = Room.databaseBuilder(context, FlowDatabase::class.java, FlowDatabase.NAME)
-        val db = Room.inMemoryDatabaseBuilder(context, FlowDatabase::class.java)
+
+        // Use Room.inMemoryDatabaseBuilder(context, FlowDatabase::class.java) for test
+        val db = Room.databaseBuilder(context, FlowDatabase::class.java, FlowDatabase.NAME)
                 .openHelperFactory(DatabaseInitializerHook(initializer))
                 .build()
-        // context.deleteDatabase(FlowDatabase.NAME)
-        initializer.needInitialization = true
         initializer.initializeIfNeeded(db)
         return db
     }

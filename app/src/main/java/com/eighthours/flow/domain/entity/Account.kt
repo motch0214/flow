@@ -29,7 +29,15 @@ data class Account(
 
         val isDeleted: Boolean = false
 
-) : Serializable
+) : Serializable {
+
+    init {
+        assert(name.isNotBlank())
+        if (type == AccountType.ASSET || type == AccountType.INCOME || type == AccountType.OUTGO) {
+            assert(groupId != null)
+        }
+    }
+}
 
 enum class AccountType {
 
