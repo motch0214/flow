@@ -67,6 +67,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end|bottom"
             android:layout_margin="@dimen/fab_margin"
+            android:alpha="0.65"
             android:onClick="@{view -> behavior.createCashflow.execute(view)}"
             app:srcCompat="@android:drawable/ic_menu_edit" />
 
