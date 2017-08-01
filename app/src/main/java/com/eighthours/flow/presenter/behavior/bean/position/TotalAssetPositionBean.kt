@@ -1,11 +1,10 @@
 package com.eighthours.flow.presenter.behavior.bean.position
 
-import com.eighthours.flow.domain.entity.Position
 import com.eighthours.flow.domain.entity.sum
 import com.eighthours.flow.presenter.utility.Formatter
 
 data class TotalAssetPositionBean(
-        private val positions: List<Position>)
+        private val positions: List<AssetPositionBean>)
     : GroupPositionBean {
 
     override val id: Long get() = 0
@@ -14,5 +13,5 @@ data class TotalAssetPositionBean(
 
     override val name = Formatter.format(TotalAccount.TOTAL_ASSET)
 
-    override val amount = Formatter.format(positions.map { it.amount }.sum())
+    override val amount = Formatter.format(positions.map { it.position.amount }.sum())
 }

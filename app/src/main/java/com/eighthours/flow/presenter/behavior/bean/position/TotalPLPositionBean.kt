@@ -1,11 +1,13 @@
 package com.eighthours.flow.presenter.behavior.bean.position
 
-import com.eighthours.flow.domain.entity.Position
+import com.eighthours.flow.domain.entity.AccountType.INCOME
+import com.eighthours.flow.domain.entity.AccountType.OUTGO
+import com.eighthours.flow.domain.entity.ZERO
 import com.eighthours.flow.domain.entity.sum
 import com.eighthours.flow.presenter.utility.Formatter
 
 data class TotalPLPositionBean(
-        private val positions: List<Position>)
+        private val positions: List<InOutPositionBean>)
     : GroupPositionBean {
 
     override val id: Long get() = 0
@@ -14,5 +16,17 @@ data class TotalPLPositionBean(
 
     override val name = Formatter.format(TotalAccount.TOTAL_PL)
 
-    override val amount = Formatter.format(positions.map { it.amount }.sum())
+    override val amount = Formatter.format(positions.map { it.position.amount }.sum())
+
+    private val incomeAmount = positions.filter { it.account.type == INCOME }
+            .map { it.position.amount }.sum()
+
+    private val outgoAmount = positions.filter { it.account.type == OUTGO }
+            .map { it.position.amount }.sum()
+
+    val income = Formatter.format(incomeAmount)
+
+    val outgo = Formatter.format(outgoAmount)
+
+    val isEitherZero = incomeAmount.compareTo(ZERO) == 0 || outgoAmount.compareTo(ZERO) == 0
 }

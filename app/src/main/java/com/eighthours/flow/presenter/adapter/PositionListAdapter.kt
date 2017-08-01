@@ -6,14 +6,8 @@ import android.support.v7.util.DiffUtil
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.eighthours.flow.databinding.ItemAssetPositionBinding
-import com.eighthours.flow.databinding.ItemGroupPositionBinding
-import com.eighthours.flow.databinding.ItemInoutPositionBinding
-import com.eighthours.flow.databinding.ItemTotalPositionBinding
-import com.eighthours.flow.presenter.behavior.bean.position.AssetGroupPositionBean
-import com.eighthours.flow.presenter.behavior.bean.position.GroupPositionBean
-import com.eighthours.flow.presenter.behavior.bean.position.PLGroupPositionBean
-import com.eighthours.flow.presenter.behavior.bean.position.PositionBeanType
+import com.eighthours.flow.databinding.*
+import com.eighthours.flow.presenter.behavior.bean.position.*
 import io.reactivex.disposables.Disposable
 
 class PositionListAdapter(
@@ -39,8 +33,8 @@ class PositionListAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val type = PositionBeanType.values()[viewType]
         val binding = when (type) {
-            PositionBeanType.TOTAL_ASSET,
-            PositionBeanType.TOTAL_PL -> ItemTotalPositionBinding.inflate(inflater)
+            PositionBeanType.TOTAL_ASSET -> ItemTotalAssetPositionBinding.inflate(inflater)
+            PositionBeanType.TOTAL_PL -> ItemTotalPlPositionBinding.inflate(inflater)
             PositionBeanType.ASSET_GROUP,
             PositionBeanType.PL_GROUP -> ItemGroupPositionBinding.inflate(inflater)
         }
@@ -50,10 +44,13 @@ class PositionListAdapter(
     override fun onBindViewHolder(holder: ViewHolder, index: Int) {
         val type = items[index].type
         when (type) {
-            PositionBeanType.TOTAL_ASSET,
+            PositionBeanType.TOTAL_ASSET -> {
+                holder.binding as ItemTotalAssetPositionBinding
+                holder.binding.bean = items[index] as TotalAssetPositionBean
+            }
             PositionBeanType.TOTAL_PL -> {
-                holder.binding as ItemTotalPositionBinding
-                holder.binding.bean = items[index]
+                holder.binding as ItemTotalPlPositionBinding
+                holder.binding.bean = items[index] as TotalPLPositionBean
             }
             PositionBeanType.ASSET_GROUP -> {
                 holder.binding as ItemGroupPositionBinding

@@ -8,7 +8,7 @@ data class InOutPositionBean(
         val position: Position,
         val account: Account) {
 
-    val name = account.name
+    val name get() = account.name
 
     val amount = Formatter.format(position.amount)
 }

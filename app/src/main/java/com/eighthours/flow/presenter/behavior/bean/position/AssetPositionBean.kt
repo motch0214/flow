@@ -13,7 +13,7 @@ data class AssetPositionBean(
         val account: Account)
     : ManagedDisposable by Disposer() {
 
-    val name = account.name
+    val name get() = account.name
 
     val amount = Formatter.format(position.amount)
 

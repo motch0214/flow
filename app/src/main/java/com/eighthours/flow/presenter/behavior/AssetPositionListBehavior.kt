@@ -2,7 +2,6 @@ package com.eighthours.flow.presenter.behavior
 
 import android.view.View
 import com.eighthours.flow.domain.entity.Account
-import com.eighthours.flow.domain.entity.AccountType.ASSET_GROUP
 import com.eighthours.flow.domain.entity.Position
 import com.eighthours.flow.presenter.adapter.PositionListAdapter
 import com.eighthours.flow.presenter.behavior.bean.position.AssetGroupPositionBean
@@ -44,11 +43,11 @@ class AssetPositionListBehavior(
                     }
                 }
                 .sortedBy { it.account.name }
-        return listOf(TotalAssetPositionBean(positions)).plus(
-                accountMap.values.filter { it.type == ASSET_GROUP }
-                        .sortedBy { it.name }
-                        .map { group ->
-                            AssetGroupPositionBean(group, items.filter { it.account.groupId == group.id })
+        return listOf(TotalAssetPositionBean(items))
+                .plus(items.groupBy { accountMap.getValue(it.account.groupId!!) }
+                        .entries.sortedBy { it.key.name }
+                        .map {
+                            AssetGroupPositionBean(it.key, it.value)
                         })
     }
 }

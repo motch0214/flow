@@ -37,12 +37,11 @@ class PLPositionListBehavior(
                     InOutPositionBean(position, accountMap.getValue(position.accountId))
                 }
                 .sortedBy { it.account.name }
-        return listOf(TotalPLPositionBean(positions)).plus(
-                items.map { accountMap.getValue(it.account.groupId!!) }
-                        .toSet()
-                        .sortedBy { it.name }
-                        .map { group ->
-                            PLGroupPositionBean(group, items.filter { it.account.groupId == group.id })
+        return listOf(TotalPLPositionBean(items))
+                .plus(items.groupBy { accountMap.getValue(it.account.groupId!!) }
+                        .entries.sortedBy { it.key.name }
+                        .map {
+                            PLGroupPositionBean(it.key, it.value)
                         })
     }
 }

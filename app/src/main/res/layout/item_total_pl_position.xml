@@ -6,9 +6,11 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="bean"
-            type="com.eighthours.flow.presenter.behavior.bean.position.GroupPositionBean" />
+            type="com.eighthours.flow.presenter.behavior.bean.position.TotalPLPositionBean" />
     </data>
 
     <RelativeLayout
@@ -35,7 +37,6 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_marginEnd="@dimen/indent"
-                    android:gravity="center_vertical"
                     android:text="@{bean.amount}"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -48,6 +49,34 @@
                     android:gravity="center_vertical"
                     android:text="@{bean.name}"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                <android.support.v4.widget.Space
+                    android:id="@+id/space"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/space_line"
+                    android:layout_below="@id/name" />
+
+                <TextView
+                    android:id="@+id/outgo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_below="@id/space"
+                    android:layout_marginEnd="@dimen/indent"
+                    android:text="@{bean.outgo}"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:visibility="@{bean.isEitherZero ? View.GONE : View.VISIBLE}" />
+
+                <TextView
+                    android:id="@+id/income"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/space"
+                    android:layout_marginEnd="@dimen/indent"
+                    android:layout_toStartOf="@id/outgo"
+                    android:text="@{bean.income}"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:visibility="@{bean.isEitherZero ? View.GONE : View.VISIBLE}" />
 
             </RelativeLayout>
         </android.support.v7.widget.CardView>
