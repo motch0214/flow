@@ -13,7 +13,7 @@ data class PLGroupPositionBean(
 
     override val type get() = PositionBeanType.PL_GROUP
 
-    override val name get() = group.name
+    val name get() = group.name
 
-    override val amount = Formatter.format(positions.map { it.position.amount }.sum())
+    val amount = Formatter.format(positions.map { it.position.amount }.sum())
 }

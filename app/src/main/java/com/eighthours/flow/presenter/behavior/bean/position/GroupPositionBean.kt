@@ -5,10 +5,6 @@ interface GroupPositionBean {
     val id: Long
 
     val type: PositionBeanType
-
-    val name: String
-
-    val amount: String
 }
 
 enum class PositionBeanType {

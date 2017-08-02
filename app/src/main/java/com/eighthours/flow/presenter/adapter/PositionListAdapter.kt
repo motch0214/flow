@@ -35,8 +35,8 @@ class PositionListAdapter(
         val binding = when (type) {
             PositionBeanType.TOTAL_ASSET -> ItemTotalAssetPositionBinding.inflate(inflater)
             PositionBeanType.TOTAL_PL -> ItemTotalPlPositionBinding.inflate(inflater)
-            PositionBeanType.ASSET_GROUP,
-            PositionBeanType.PL_GROUP -> ItemGroupPositionBinding.inflate(inflater)
+            PositionBeanType.ASSET_GROUP -> ItemAssetGroupPositionBinding.inflate(inflater)
+            PositionBeanType.PL_GROUP -> ItemPlGroupPositionBinding.inflate(inflater)
         }
         return ViewHolder(binding)
     }
@@ -53,12 +53,12 @@ class PositionListAdapter(
                 holder.binding.bean = items[index] as TotalPLPositionBean
             }
             PositionBeanType.ASSET_GROUP -> {
-                holder.binding as ItemGroupPositionBinding
+                holder.binding as ItemAssetGroupPositionBinding
                 (holder.binding.bean as? Disposable)?.dispose()
                 bind(holder.binding, items[index] as AssetGroupPositionBean)
             }
             PositionBeanType.PL_GROUP -> {
-                holder.binding as ItemGroupPositionBinding
+                holder.binding as ItemPlGroupPositionBinding
                 bind(holder.binding, items[index] as PLGroupPositionBean)
             }
         }
@@ -83,7 +83,7 @@ class PositionListAdapter(
     }
 
 
-    private fun bind(binding: ItemGroupPositionBinding, bean: AssetGroupPositionBean) {
+    private fun bind(binding: ItemAssetGroupPositionBinding, bean: AssetGroupPositionBean) {
         binding.bean = bean
         val existence = binding.positions.childCount
 
@@ -104,7 +104,7 @@ class PositionListAdapter(
         }
     }
 
-    private fun bind(binding: ItemGroupPositionBinding, bean: PLGroupPositionBean) {
+    private fun bind(binding: ItemPlGroupPositionBinding, bean: PLGroupPositionBean) {
         binding.bean = bean
         val existence = binding.positions.childCount
 

@@ -18,7 +18,7 @@
         <android.support.v4.widget.Space
             android:id="@+id/line"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/large_space_line" />
+            android:layout_height="@dimen/small_space" />
 
         <TextView
             android:id="@+id/amount"
@@ -29,7 +29,8 @@
             android:layout_marginEnd="@dimen/indent"
             android:gravity="center_vertical"
             android:text="@{bean.amount}"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@{bean.isIncome ? @color/income : @color/outgo}" />
 
         <TextView
             android:id="@+id/name"
@@ -41,7 +42,7 @@
             android:layout_toStartOf="@id/amount"
             android:gravity="center_vertical"
             android:text="@{bean.name}"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:textAppearance="?android:attr/textAppearanceSmall" />
 
     </RelativeLayout>
 </layout>

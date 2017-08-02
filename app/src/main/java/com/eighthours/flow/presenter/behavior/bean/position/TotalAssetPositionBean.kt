@@ -11,7 +11,7 @@ data class TotalAssetPositionBean(
 
     override val type get() = PositionBeanType.TOTAL_ASSET
 
-    override val name = Formatter.format(TotalAccount.TOTAL_ASSET)
+    val name = Formatter.format(TotalAccount.TOTAL_ASSET)
 
-    override val amount = Formatter.format(positions.map { it.position.amount }.sum())
+    val amount = Formatter.format(positions.map { it.position.amount }.sum())
 }

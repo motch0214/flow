@@ -14,9 +14,9 @@ data class TotalPLPositionBean(
 
     override val type get() = PositionBeanType.TOTAL_PL
 
-    override val name = Formatter.format(TotalAccount.TOTAL_PL)
+    val name = Formatter.format(TotalAccount.TOTAL_PL)
 
-    override val amount = Formatter.format(positions.map { it.position.amount }.sum())
+    val amount = Formatter.format(positions.map { it.position.amount }.sum())
 
     private val incomeAmount = positions.filter { it.account.type == INCOME }
             .map { it.position.amount }.sum()

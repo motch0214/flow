@@ -3,4 +3,7 @@
     <color name="primary">#842673</color>
     <color name="primary_dark">#7b236a</color>
     <color name="accent">#96d93e</color>
+
+    <color name="income">#000050</color>
+    <color name="outgo">#b00000</color>
 </resources>

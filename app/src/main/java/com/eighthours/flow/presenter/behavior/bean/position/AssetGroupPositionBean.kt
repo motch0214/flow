@@ -1,8 +1,6 @@
 package com.eighthours.flow.presenter.behavior.bean.position
 
 import com.eighthours.flow.domain.entity.Account
-import com.eighthours.flow.domain.entity.sum
-import com.eighthours.flow.presenter.utility.Formatter
 import io.reactivex.disposables.Disposable
 import java.util.concurrent.atomic.AtomicBoolean
 
@@ -15,9 +13,7 @@ data class AssetGroupPositionBean(
 
     override val type get() = PositionBeanType.ASSET_GROUP
 
-    override val name get() = group.name
-
-    override val amount = Formatter.format(positions.map { it.position.amount }.sum())
+    val name get() = group.name
 
     private val isDisposed = AtomicBoolean()
 
