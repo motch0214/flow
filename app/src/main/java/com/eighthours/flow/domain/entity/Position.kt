@@ -40,3 +40,7 @@ val ZERO: BigDecimal = BigDecimal.ZERO
 fun List<Amount>.sum(): Amount {
     return this.fold(ZERO) { acc, current -> acc + current }
 }
+
+fun Amount.isZero(): Boolean = this.compareTo(ZERO) == 0
+
+fun Amount.isNotZero(): Boolean = this.compareTo(ZERO) != 0

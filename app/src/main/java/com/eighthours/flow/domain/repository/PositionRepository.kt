@@ -16,7 +16,9 @@ interface PositionRepository {
 
     fun findInOutPosition(accountId: Long, month: YearMonth): Position?
 
-    fun insertAll(positions: List<Position>)
+    fun insert(position: Position)
 
-    fun updateAll(positions: List<Position>)
+    fun update(position: Position)
+
+    fun delete(position: Position)
 }

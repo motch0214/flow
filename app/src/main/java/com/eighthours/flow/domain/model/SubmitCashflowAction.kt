@@ -1,9 +1,7 @@
 package com.eighthours.flow.domain.model
 
-import com.eighthours.flow.domain.entity.Account
+import com.eighthours.flow.domain.entity.*
 import com.eighthours.flow.domain.entity.AccountType.*
-import com.eighthours.flow.domain.entity.Position
-import com.eighthours.flow.domain.entity.ZERO
 import com.eighthours.flow.domain.repository.Repository
 import com.eighthours.flow.utility.async
 import com.orhanobut.logger.Logger
@@ -39,7 +37,7 @@ class SubmitCashflowAction
                 )
             }
             Logger.v("save $from, $to")
-            insertOrUpdate(from, to)
+            save(from, to)
         }
     }
 
@@ -59,12 +57,14 @@ class SubmitCashflowAction
         )
     }
 
-    private fun insertOrUpdate(vararg positions: Position) {
+    private fun save(vararg positions: Position) {
         positions.forEach {
-            if (it.id == null) {
-                repository.position().insertAll(listOf(it))
-            } else {
-                repository.position().updateAll(listOf(it))
+            if (it.id == null && it.amount.isNotZero()) {
+                repository.position().insert(it)
+            } else if (it.id != null && it.amount.isNotZero()) {
+                repository.position().update(it)
+            } else if (it.id != null && it.amount.isZero()) {
+                repository.position().delete(it)
             }
         }
     }

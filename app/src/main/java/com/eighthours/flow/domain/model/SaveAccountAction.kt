@@ -22,7 +22,7 @@ class SaveAccountAction
                     month = null,
                     amount = amount,
                     updatedDateTime = asset.updatedDateTime)
-            repository.position().insertAll(listOf(position))
+            repository.position().insert(position)
         }
     }
 

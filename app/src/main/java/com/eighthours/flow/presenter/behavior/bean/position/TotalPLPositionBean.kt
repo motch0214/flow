@@ -2,7 +2,7 @@ package com.eighthours.flow.presenter.behavior.bean.position
 
 import com.eighthours.flow.domain.entity.AccountType.INCOME
 import com.eighthours.flow.domain.entity.AccountType.OUTGO
-import com.eighthours.flow.domain.entity.ZERO
+import com.eighthours.flow.domain.entity.isZero
 import com.eighthours.flow.domain.entity.sum
 import com.eighthours.flow.presenter.utility.Formatter
 
@@ -28,5 +28,5 @@ data class TotalPLPositionBean(
 
     val outgo = Formatter.format(outgoAmount)
 
-    val isEitherZero = incomeAmount.compareTo(ZERO) == 0 || outgoAmount.compareTo(ZERO) == 0
+    val isEitherZero = incomeAmount.isZero() || outgoAmount.isZero()
 }

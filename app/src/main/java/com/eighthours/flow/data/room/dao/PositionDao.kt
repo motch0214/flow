@@ -42,8 +42,11 @@ interface PositionDao
     override fun findInOutPosition(accountId: Long, month: YearMonth): Position?
 
     @Insert(onConflict = OnConflictStrategy.ROLLBACK)
-    override fun insertAll(positions: List<Position>)
+    override fun insert(position: Position)
 
     @Update(onConflict = OnConflictStrategy.ROLLBACK)
-    override fun updateAll(positions: List<Position>)
+    override fun update(position: Position)
+
+    @Delete
+    override fun delete(position: Position)
 }
