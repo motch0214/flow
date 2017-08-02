@@ -56,7 +56,8 @@ class AssetPositionListFragment
         binding.list.layoutManager = LinearLayoutManager(activity)
 
         // Menu
-        managed(behavior.menu.subscribe { (anchor, pos) ->
+        managed(behavior.menu.subscribe { (view, pos) ->
+            val anchor = view.findViewById(R.id.menu)
             Menu(activity, anchor, R.menu.menu_item_position,
                     R.id.action_reconcile to { openReconcile(pos) }
             ).show()

@@ -13,7 +13,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:onClick="@{bean.openMenu.execute}">
 
         <android.support.v4.widget.Space
             android:id="@+id/line"
@@ -27,7 +28,6 @@
             android:layout_alignParentEnd="true"
             android:layout_below="@id/line"
             android:gravity="end"
-            android:onClick="@{bean.openMenu.execute}"
             android:text="@string/vertical_ellipsis"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
