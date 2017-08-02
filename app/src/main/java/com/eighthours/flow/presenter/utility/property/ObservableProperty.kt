@@ -25,7 +25,7 @@ class ObservableProperty<T>(
     val visibility = ObservableInt()
 
     // For behavior
-    val command: PublishSubject<Unit> = PublishSubject.create()
+    val command: PublishSubject<View> = PublishSubject.create()
 
     private val subject = BehaviorSubject.create<T>()
 
@@ -43,8 +43,8 @@ class ObservableProperty<T>(
     }
 
     // For layout
-    fun execute() {
-        command.onNext(Unit)
+    fun execute(view: View) {
+        command.onNext(view)
     }
 
     // For behavior

@@ -20,7 +20,7 @@
             android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> behavior.date.execute()}"
+            android:onClick="@{behavior.date.execute}"
             android:text="@{behavior.date.text}"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:layout_toStartOf="@id/arrow"
                 android:hint="@string/hint_select_account"
-                android:onClick="@{() -> behavior.from.execute()}"
+                android:onClick="@{behavior.from.execute}"
                 android:text="@{behavior.from.text}"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -54,7 +54,7 @@
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@id/arrow"
                 android:hint="@string/hint_select_account"
-                android:onClick="@{() -> behavior.to.execute()}"
+                android:onClick="@{behavior.to.execute}"
                 android:text="@{behavior.to.text}"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
         </RelativeLayout>
@@ -87,7 +87,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:enabled="@{behavior.save.enabled}"
-                android:onClick="@{view -> behavior.save.execute(view)}"
+                android:onClick="@{behavior.save.execute}"
                 android:text="@string/save" />
 
             <Button
@@ -96,7 +96,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toStartOf="@id/save_button"
-                android:onClick="@{view -> behavior.cancel.execute(view)}"
+                android:onClick="@{behavior.cancel.execute}"
                 android:text="@string/cancel" />
 
         </RelativeLayout>

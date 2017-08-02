@@ -36,7 +36,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/indent"
-                    android:onClick="@{() -> behavior.month.execute()}"
+                    android:onClick="@{behavior.month.execute}"
                     android:text="@{behavior.month.text}"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:visibility="@{behavior.month.visibility}" />
@@ -68,7 +68,7 @@
             android:layout_gravity="end|bottom"
             android:layout_margin="@dimen/fab_margin"
             android:alpha="0.65"
-            android:onClick="@{view -> behavior.createCashflow.execute(view)}"
+            android:onClick="@{behavior.createCashflow.execute}"
             app:srcCompat="@android:drawable/ic_menu_edit" />
 
     </android.support.design.widget.CoordinatorLayout>

@@ -27,7 +27,7 @@
             android:layout_alignParentEnd="true"
             android:layout_below="@id/line"
             android:gravity="end"
-            android:onClick="@{view -> bean.openMenu.execute(view)}"
+            android:onClick="@{bean.openMenu.execute}"
             android:text="@string/vertical_ellipsis"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 

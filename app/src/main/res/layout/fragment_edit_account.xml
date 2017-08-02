@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_select_account_type"
-            android:onClick="@{() -> behavior.type.execute()}"
+            android:onClick="@{behavior.type.execute}"
             android:text="@{behavior.type.text}"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/indent"
             android:hint="@string/hint_select_account_group"
-            android:onClick="@{() -> behavior.group.execute()}"
+            android:onClick="@{behavior.group.execute}"
             android:text="@{behavior.group.text}"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:visibility="@{behavior.group.visibility}" />
@@ -77,7 +77,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:enabled="@{behavior.save.enabled}"
-                android:onClick="@{view -> behavior.save.execute(view)}"
+                android:onClick="@{behavior.save.execute}"
                 android:text="@string/create" />
 
             <Button
@@ -86,7 +86,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toStartOf="@id/reconcile"
-                android:onClick="@{view -> behavior.cancel.execute(view)}"
+                android:onClick="@{behavior.cancel.execute}"
                 android:text="@string/cancel" />
 
         </RelativeLayout>
